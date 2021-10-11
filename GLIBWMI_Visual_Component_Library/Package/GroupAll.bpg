@@ -1,0 +1,36 @@
+#------------------------------------------------------------------------------
+VERSION = BWS.01
+#------------------------------------------------------------------------------
+!ifndef ROOT
+ROOT = $(MAKEDIR)\..
+!endif
+#------------------------------------------------------------------------------
+MAKE = $(ROOT)\bin\make.exe -$(MAKEFLAGS) -f$**
+DCC = $(ROOT)\bin\dcc32.exe $**
+BRCC = $(ROOT)\bin\brcc32.exe $**
+#------------------------------------------------------------------------------
+PROJECTS = GLibWMI.bpl TestBiosInfo.exe DiskDriveInfo.exe ProcessorInfo.exe \
+  PGenericTest.exe ServiceControl.exe
+#------------------------------------------------------------------------------
+default: $(PROJECTS)
+#------------------------------------------------------------------------------
+
+GLibWMI.bpl: ..\Package\GLibWMI.dpk
+  $(DCC)
+
+TestBiosInfo.exe: ..\Demos\BIOSdemo\TestBiosInfo.dpr
+  $(DCC)
+
+DiskDriveInfo.exe: ..\Demos\DiskDriveInfo\DiskDriveInfo.dpr
+  $(DCC)
+
+ProcessorInfo.exe: ..\Demos\ProcessorInfo\ProcessorInfo.dpr
+  $(DCC)
+
+PGenericTest.exe: ..\Demos\Generic\PGenericTest.dpr
+  $(DCC)
+
+ServiceControl.exe: ..\Demos\ServiceControl\ServiceControl.dpr
+  $(DCC)
+
+

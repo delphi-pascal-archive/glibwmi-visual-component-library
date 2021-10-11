@@ -1,0 +1,96 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{6B1D5890-6CC5-4E88-B00F-4722D64B625E}</ProjectGuid>
+		</PropertyGroup>
+		<ItemGroup>
+			<Projects Include="GLibWMI.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Demos\BIOSdemo\TestBiosInfo.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Demos\DiskDriveInfo\DiskDriveInfo.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Demos\ProcessorInfo\ProcessorInfo.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Demos\Generic\PGenericTest.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Demos\ServiceControl\ServiceControl.dproj">
+				<Dependencies/>
+			</Projects>
+		</ItemGroup>
+		<ProjectExtensions>
+			<Borland.Personality>Default.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Default.Personality/>
+			</BorlandProject>
+		</ProjectExtensions>
+		<Target Name="GLibWMI">
+			<MSBuild Projects="GLibWMI.dproj"/>
+		</Target>
+		<Target Name="GLibWMI:Clean">
+			<MSBuild Targets="Clean" Projects="GLibWMI.dproj"/>
+		</Target>
+		<Target Name="GLibWMI:Make">
+			<MSBuild Targets="Make" Projects="GLibWMI.dproj"/>
+		</Target>
+		<Target Name="TestBiosInfo">
+			<MSBuild Projects="..\Demos\BIOSdemo\TestBiosInfo.dproj"/>
+		</Target>
+		<Target Name="TestBiosInfo:Clean">
+			<MSBuild Targets="Clean" Projects="..\Demos\BIOSdemo\TestBiosInfo.dproj"/>
+		</Target>
+		<Target Name="TestBiosInfo:Make">
+			<MSBuild Targets="Make" Projects="..\Demos\BIOSdemo\TestBiosInfo.dproj"/>
+		</Target>
+		<Target Name="DiskDriveInfo">
+			<MSBuild Projects="..\Demos\DiskDriveInfo\DiskDriveInfo.dproj"/>
+		</Target>
+		<Target Name="DiskDriveInfo:Clean">
+			<MSBuild Targets="Clean" Projects="..\Demos\DiskDriveInfo\DiskDriveInfo.dproj"/>
+		</Target>
+		<Target Name="DiskDriveInfo:Make">
+			<MSBuild Targets="Make" Projects="..\Demos\DiskDriveInfo\DiskDriveInfo.dproj"/>
+		</Target>
+		<Target Name="ProcessorInfo">
+			<MSBuild Projects="..\Demos\ProcessorInfo\ProcessorInfo.dproj"/>
+		</Target>
+		<Target Name="ProcessorInfo:Clean">
+			<MSBuild Targets="Clean" Projects="..\Demos\ProcessorInfo\ProcessorInfo.dproj"/>
+		</Target>
+		<Target Name="ProcessorInfo:Make">
+			<MSBuild Targets="Make" Projects="..\Demos\ProcessorInfo\ProcessorInfo.dproj"/>
+		</Target>
+		<Target Name="PGenericTest">
+			<MSBuild Projects="..\Demos\Generic\PGenericTest.dproj"/>
+		</Target>
+		<Target Name="PGenericTest:Clean">
+			<MSBuild Targets="Clean" Projects="..\Demos\Generic\PGenericTest.dproj"/>
+		</Target>
+		<Target Name="PGenericTest:Make">
+			<MSBuild Targets="Make" Projects="..\Demos\Generic\PGenericTest.dproj"/>
+		</Target>
+		<Target Name="ServiceControl">
+			<MSBuild Projects="..\Demos\ServiceControl\ServiceControl.dproj"/>
+		</Target>
+		<Target Name="ServiceControl:Clean">
+			<MSBuild Targets="Clean" Projects="..\Demos\ServiceControl\ServiceControl.dproj"/>
+		</Target>
+		<Target Name="ServiceControl:Make">
+			<MSBuild Targets="Make" Projects="..\Demos\ServiceControl\ServiceControl.dproj"/>
+		</Target>
+		<Target Name="Build">
+			<CallTarget Targets="GLibWMI;TestBiosInfo;DiskDriveInfo;ProcessorInfo;PGenericTest;ServiceControl"/>
+		</Target>
+		<Target Name="Clean">
+			<CallTarget Targets="GLibWMI:Clean;TestBiosInfo:Clean;DiskDriveInfo:Clean;ProcessorInfo:Clean;PGenericTest:Clean;ServiceControl:Clean"/>
+		</Target>
+		<Target Name="Make">
+			<CallTarget Targets="GLibWMI:Make;TestBiosInfo:Make;DiskDriveInfo:Make;ProcessorInfo:Make;PGenericTest:Make;ServiceControl:Make"/>
+		</Target>
+		<Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+	</Project>
